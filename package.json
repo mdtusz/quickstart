@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack -wd",
+    "dev": "concurrently 'webpack -wd' 'nodemon build/server/server.js'",
     "build": "webpack --optimize-minimize"
   },
   "author": "Miklós Tusz",
@@ -17,15 +17,23 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
+    "flow-babel-webpack-plugin": "^1.1.1",
+    "flow-bin": "^0.59.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.9",
     "sass-loader": "^6.0.6",
     "webpack": "^3.10.0"
   },
   "babel": {
-    "presets": ["env", "react"]
+    "presets": [
+      "env",
+      "flow",
+      "react"
+    ]
   }
 }
